@@ -4,14 +4,14 @@ from Tkinter import *
 from ttk import Frame, Style, Button
 from productgroup import ProductGroup
 
-class Testgui(Frame):
+class ZapposGUI(Frame):
 	def __init__(self,parent):
 		Frame.__init__(self,parent)
 		self.parent = parent
 		self.initUI()
 
 	def initUI(self):
-		self.parent.title("Zappos Test")
+		self.parent.title("Zappos Challenge")
 		# self.pack(fill=BOTH, expand=1)
 		self.style = Style()
 		# self.style.theme_use("default")
@@ -83,7 +83,7 @@ class Testgui(Frame):
 def main():
 	root = Tk()
 	# root.geometry("600x500")# +300+300")
-	app=Testgui(root)
+	app=ZapposGUI(root)
 	root.configure(background='white')
 	root.mainloop()
 
