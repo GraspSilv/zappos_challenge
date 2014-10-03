@@ -24,9 +24,20 @@ class ProductGroup:
 	def addOne(self,item):
 		self.items.append(item)
 
+	def returnOneByProductName(self,name,key):
+		for item in self.items:
+			if item["productName"] == name:
+				return item[key]
+
 	def printAllByKey(self,key):
 		for item in self.items:
 			print item[key]
+
+	def returnAllByKey(self,key):
+		info = []
+		for item in self.items:
+			info.append(item[key])
+		return info
 
 	def getResultsFromAPI(self):
 		call = search + random.choice(terms) + limit + page + str(random.randint(1,5)) + myKey
