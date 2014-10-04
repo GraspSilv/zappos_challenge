@@ -24,6 +24,11 @@ class ProductGroup:
 	def addOne(self,item):
 		self.items.append(item)
 
+	def removeOne(self,name):
+		for item in self.items:
+			if item['productName'] == name:
+				self.items.remove(item)
+
 	def returnOneByProductName(self,name,key):
 		for item in self.items:
 			if item["productName"] == name:
@@ -41,8 +46,8 @@ class ProductGroup:
 
 	def getResultsFromAPI(self):
 		call = search + random.choice(terms) + limit + page + str(random.randint(1,5)) + myKey
-		print "calling"
-		print len(self.items)
+		# print "calling"
+		# print len(self.items)
 		r = requests.get(call)
 		data = json.loads(r.text)
 		self.counter = len(data['results']) - 1
@@ -84,7 +89,7 @@ class ProductGroup:
 		tryValue = 0
 		while self.itemCount > len(self.items):
 			# print "ok"
-			print tryValue
+			# print tryValue
 			tryValue += 1
 			if self.populateOne(data) == False:
 				
